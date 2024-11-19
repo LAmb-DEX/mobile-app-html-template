@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /    #All the files from the repository
+    destination: /var/www/html
+hooks:
+  AfterInstall:
+    - location: scripts/set-permissions
+      timeout: 60
+      runas: root
