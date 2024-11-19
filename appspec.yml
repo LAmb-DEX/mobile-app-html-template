@@ -1,10 +1,21 @@
 version: 0.0
 os: linux
 files:
-  - source: /    #All the files from the repository
+  - source: / 
     destination: /var/www/html
-hooks:
-  AfterInstall:
-    - location: scripts/set-permissions
-      timeout: 60
-      runas: root
+permissions:
+  - object:/var/www/html
+    pattern: "**"
+    owner: ec2-user
+    group: apache
+    mode: 750
+    type:
+      - directory
+
+  - object:/var/www/html
+    pattern: "**"
+    owner: ec2-user
+    group: apache
+    mode: 640
+    type:
+      - file
