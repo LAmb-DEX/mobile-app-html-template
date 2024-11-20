@@ -1,9 +1,11 @@
-version: 0.0
+---
+version: 0
 os: linux
 files:
   - source: /
     destination: /var/www/html
 permissions:
+#Permissions for directories
   - object: /var/www/html
     pattern: "**"
     owner: ec2-user
@@ -11,6 +13,8 @@ permissions:
     mode: 750
     type:
       - directory
+      
+#Permissions for files
   - object: /var/www/html
     pattern: "**"
     owner: ec2-user
